@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # ✅ Skip assets and real files
+  RewriteCond %{REQUEST_URI} !^/assets/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # ✅ Send everything else to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
